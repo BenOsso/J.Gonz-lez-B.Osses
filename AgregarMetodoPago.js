@@ -2,11 +2,16 @@
 
 $(document).ready(function(){
 
+
+    
+
     $('#cochang').submit(function(){
 
         event.preventDefault();
 
-        if ($('#NumeroTarjeta').val().toString().length<=16 && $('#Ccv').val().toString().length==3){
+
+
+        if ($('#Titual').val()!="" && $('#NumeroTarjeta').val().toString().length<=16 && $('#Ccv').val().toString().length==3){
             alert('TARJETA GUARDADA CON EXITO!')
 
 
@@ -15,7 +20,16 @@ $(document).ready(function(){
 
 
         }else{
-            alert('UNO O MAS CAMPOS INVALIDOS.')
+            var Problema = "";
+            if ($('#NumeroTarjeta').val().toString().length>16 ){
+                Problema+="\nNumero de tarjeta invalido\n"
+            }
+            if ($('#Ccv').val().toString().length!=3){
+                Problema+='\nCCV INVALIDO\n'
+            }
+
+
+            alert(Problema)
         }
 
 
