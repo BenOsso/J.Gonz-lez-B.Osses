@@ -1,0 +1,28 @@
+CREATE TABLE tarjetas (
+    idusuarioposeedor int not null,
+    titular varchar(100) not null,
+    numerostarjeta int not null,
+    ccv int not null,
+    fechavenc date not null,
+    FOREIGN KEY (idusuarioposeedor) REFERENCES usuarios(idusuario)
+);
+ 
+
+
+CREATE TABLE usuarios (
+    idusuario int not null auto_increment,
+    pnombre varchar(40) not null,
+    snombre varchar(40),
+    app varchar(40) not null,
+    apm varchar(40),
+    fechanac date not null,
+    correo varchar(40) not null unique,
+    usuario varchar(30) not null unique,
+    contrasena varchar(40) not null,
+    saldo int not null,
+    primary key (idusuario)
+);
+
+insert into usuarios values (null,'Javier','Antonio','Gonzalez','Barrientos',DATE('2003-12-12'),'jagonz@gmai.com','wesker09111','123',1000);
+
+insert into tarjetas values (1,'JAVIER GONZALEZ B',123123123123,123,DATE('2027-02-02'));
